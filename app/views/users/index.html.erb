@@ -1,0 +1,7 @@
+<h1>Index Page</h1>
+
+<h2>You Are Signed In As: <%= current_user.email %></h2>
+
+<% @users.each do |user| %>
+<p><%= user.email %></p>
+<% end %>
