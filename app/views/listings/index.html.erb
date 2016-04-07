@@ -28,7 +28,11 @@
         <td><%= listing.accommodates %></td>
         <td><%= listing.address %></td>
         <td><%= listing.city %></td>
+        <% if listing.user.profile != nil %>
+        <td><%= link_to "#{listing.user.profile.name}", profile_path(listing.user.profile.id) %></td>
+        <% else %>
         <td><%= listing.user.email %></td>
+        <% end %>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

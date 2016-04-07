@@ -140,3 +140,11 @@
   <i class="fa fa-facebook"/>
   Log In with Facebook
 </a>
+
+<br><br>
+
+<% if current_user.profile == nil %>
+<%= link_to 'New Profile', new_profile_path %>
+<% else %>
+<%= link_to 'Your Profile', profile_path(current_user.profile.id) %>
+<% end %>
