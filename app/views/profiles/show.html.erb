@@ -3,7 +3,7 @@
 
 <p>
   <strong>Profile pic:</strong>
-  <%= @profile.profile_pic %>
+  <%= image_tag @profile.profile_pic_url(:big).to_s %>
 </p>
 
 <p>
