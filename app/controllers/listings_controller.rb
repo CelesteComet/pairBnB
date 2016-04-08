@@ -3,6 +3,8 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
 
   def create
+    # @user = current_user
+
     @listing = Listing.new(listing_params)
 
     respond_to do |format|
@@ -28,6 +30,7 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
   end
 
   def update
+    # @user = current_user
         respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
