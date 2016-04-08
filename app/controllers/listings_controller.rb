@@ -59,6 +59,6 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params[:listing][:user_id] = current_user.id
-      params.require(:listing).permit(:name, :home_type, :room_type, :accommodates, :address, :city, :user_id, :listingpic)
+      params.require(:listing).permit(:name, :home_type, :room_type, :accommodates, :address, :city, :user_id, { :listingpics => [] })
     end
 end

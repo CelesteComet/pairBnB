@@ -1,4 +1,4 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
-	mount_uploader :listingpic, ListingpicUploader
+	mount_uploaders :listingpics, ListingpicUploader
 end

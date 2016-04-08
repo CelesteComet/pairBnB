@@ -36,8 +36,8 @@
     <%= f.text_field :city %>
   </div>
    <div class="field">
-    <%= f.label :listingpic %><br>
-    <%= f.file_field :listingpic %>
+    <%= f.label :listingpics %><br>
+    <%= f.file_field :listingpics, multiple: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
