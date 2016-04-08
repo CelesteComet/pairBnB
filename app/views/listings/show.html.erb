@@ -4,6 +4,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Listing Pic:</strong>
+  <%= image_tag @listing.listingpic_url(:mid).to_s %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @listing.name %>
 </p>
