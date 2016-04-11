@@ -44,8 +44,8 @@ class ReservationsController < ApplicationController
 
         # byebug
 
-        ReservationMailer.reservation_email(@user, @listing, @reserver).deliver
-        ReservationMailer.confirmation_email(@user, @listing, @reserver).deliver
+        ReservationMailer.delay.reservation_email(@user, @listing, @reserver)
+        ReservationMailer.delay.confirmation_email(@user, @listing, @reserver)
 
         # byebug
 

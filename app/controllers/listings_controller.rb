@@ -26,7 +26,7 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
   end
 
   def index
-    @listings = Listing.all
+    @listings = Listing.paginate(:page => params[:page], per_page: 5).order(created_at: :desc)
   end
 
   def update
