@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reservations, except: [:edit, :update]
+  resources :reservations
   resources :profiles
   get 'listings/create'
 
