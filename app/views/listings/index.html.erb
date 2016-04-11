@@ -9,6 +9,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Picture</th>
       <th>Home type</th>
       <th>Room type</th>
       <th>Accommodates</th>
@@ -23,6 +24,11 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.name %></td>
+        <% if listing.listingpic.blank? == true %>
+        <td>No Pic Available</td>
+        <% else %>
+        <td><%= image_tag listing.listingpic_url(:thumb).to_s %></td>
+        <% end %>
         <td><%= listing.home_type %></td>
         <td><%= listing.room_type %></td>
         <td><%= listing.accommodates %></td>
