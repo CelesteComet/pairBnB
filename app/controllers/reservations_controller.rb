@@ -28,8 +28,28 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
+    # byebug
+
     respond_to do |format|
       if @reservation.save
+
+        # byebug
+
+
+        @listing = Listing.find(params[:reservation][:listing_id])
+
+        @user = @listing.user
+
+        @reserver = User.find(params[:reservation][:user_id])
+
+        # byebug
+
+        ReservationMailer.delay.reservation_email(@user, @listing, @reserver)
+        ReservationMailer.delay.confirmation_email(@user, @listing, @reserver)
+
+        # byebug
+
+
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

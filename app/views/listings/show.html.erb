@@ -79,7 +79,12 @@
 <p>
   <strong> Reservations:</strong>
   <% @listing.reservations.each.with_index do |booking, index| %>
-  <p><%= index + 1 %>  From:  <%= booking.checkin %>   To:  <%=  booking.checkout %>   -- Booked By: <%= booking.user.profile.name %></p>
+  <p><%= index + 1 %>  From:  <%= booking.checkin %>   To:  <%=  booking.checkout %>   -- Booked By: <%= booking.user.profile.name %>  
+
+  <% if current_user == booking.user %>
+  <%= link_to 'Destroy', reservation_path(:id => booking.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
+  </p>
   <% end %>
 </p>
 

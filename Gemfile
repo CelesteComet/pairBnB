@@ -29,6 +29,8 @@ gem 'omniauth-facebook'
 gem 'carrierwave',  github:'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'sidekiq'
+gem 'will_paginate', '~> 3.0.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
