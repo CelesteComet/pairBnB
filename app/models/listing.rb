@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
-	mount_uploader :listingpic, ListingpicUploader
+	has_many :reservations, :dependent => :destroy
+	mount_uploaders :listingpics, ListingpicUploader
 end

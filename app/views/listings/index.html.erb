@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Picture</th>
+      <th>Pictures</th>
       <th>Home type</th>
       <th>Room type</th>
       <th>Accommodates</th>
@@ -24,10 +24,13 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.name %></td>
-        <% if listing.listingpic.blank? == true %>
-        <td>No Pic Available</td>
+        <% if listing.listingpics.blank? == true %>
+        <td>No Pics Available</td>
         <% else %>
-        <td><%= image_tag listing.listingpic_url(:thumb).to_s %></td>
+        <td><% listing.listingpics.each do |listingpic| %>
+        <%= image_tag listingpic.url(:thumb).to_s, class: "img-rounded" %><b>
+        <% end %>
+        </td>
         <% end %>
         <td><%= listing.home_type %></td>
         <td><%= listing.room_type %></td>
@@ -35,7 +38,7 @@
         <td><%= listing.address %></td>
         <td><%= listing.city %></td>
         <% if listing.user.profile != nil %>
-        <td><%= image_tag listing.user.profile.profile_pic_url(:thumb).to_s %><%= link_to "#{listing.user.profile.name}", profile_path(listing.user.profile.id) %></td>
+        <td><%= image_tag listing.user.profile.profile_pic_url(:thumb).to_s, class: "img-circle" %><%= link_to "#{listing.user.profile.name}", profile_path(listing.user.profile.id) %></td>
         <% else %>
         <td><%= listing.user.email %></td>
         <% end %>

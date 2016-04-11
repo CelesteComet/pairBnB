@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @reservation.checkin %>
+</p>
+
+<p>
+  <strong>Checkout:</strong>
+  <%= @reservation.checkout %>
+</p>
+
+<p>
+  <strong>Specialrequests:</strong>
+  <%= @reservation.specialrequests %>
+</p>
+
+<p>
+  <strong>User Who Made Reservation:</strong>
+  <%= @reservation.user.profile.name %>
+</p>
+
+<p>
+  <strong>Listing Name:</strong>
+  <%= @reservation.listing.name %>
+</p>
+
+<%= link_to 'Back', reservations_path %>

@@ -32,7 +32,7 @@ class ListingpicUploader < CarrierWave::Uploader::Base
   end
   
   version :full do
-    process :resize_to_fit => [1000, 1000]
+    process :resize_to_fit => [1280, 1000]
   end
 
   version :mid do
