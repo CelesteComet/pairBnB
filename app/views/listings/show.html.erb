@@ -75,6 +75,15 @@
   <%= @listing.user.email %>
 </p>
 
+
+<p>
+  <strong> Reservations:</strong>
+  <% @listing.reservations.each.with_index do |booking, index| %>
+  <p><%= index + 1 %>  From:  <%= booking.checkin %>   To:  <%=  booking.checkout %>   -- Booked By: <%= booking.user.profile.name %></p>
+  <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
 <br>
