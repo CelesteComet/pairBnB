@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <% if @reserver.profile != nil %>
+    <h1> Hi <%= @reserver.profile.name %> ! </h1>
+
+    <% else %>
+
+    <h1> Hi <%= @reserver.email %> ! </h1>
+
+    <% end %>
+
+    <br>
+    <h2>Congratulations! Your booking for <%= @listing.name %> on JohnsonBBnB has been confirmed!</h2>
+    <br>
+    <h2>Enjoy Your Stay!</h2>
+  </body>
+</html>
