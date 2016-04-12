@@ -57,3 +57,41 @@
 <br>
 
 <%= link_to 'New Listing', new_listing_path %>
+
+<div class="container">
+
+ <h1>JohnsonBnB Listings:</h1>
+ <br>
+ <% @listings.each do |listing| %>
+   <div class="row"><!-- Full Row -->      
+     <div class="col-lg-5"><!-- Picture Box-->
+     <% if listing.listingpics.blank? == true %>
+     <p>No Pics Available</p>
+     <% else %>
+       <%= image_tag listing.listingpics.first.url(:mid).to_s %>
+     <% end %>
+     </div><!-- End Picture Box -->
+     <div class="col-lg-5"><!-- Info Box -->
+       <h3><%= link_to "#{listing.name}", listing %></h3>
+       <p>Home type: <%= listing.home_type %></p>
+       <p>Room type: <%= listing.room_type %></p>
+       <p>Accomodates: <%= listing.accommodates %></p>
+       <p>Address: <%= listing.address %></p>
+       <p>City: <%= listing.city %></p>
+     </div><!-- End Info Box -->
+     <div class="col-lg-2"><!-- User Box -->
+       <p>Posted by:</p>
+       <p><%= image_tag listing.user.profile.profile_pic_url(:thumb).to_s, class:"img-circle" %> <%= link_to "#{listing.user.profile.name}", profile_path(listing.user.profile) %></p>
+       <% if listing.user == current_user %>
+         <p>
+           <%= link_to 'Edit', edit_listing_path(listing), class:"btn btn-warning" %>
+           <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+         </p>
+       <% end %>          
+     </div><!-- End User Box -->
+     <hr>
+   </div><!-- End Full Row -->
+   <hr>
+ <% end %>
+   <%= link_to 'Create New Listing', new_listing_path, class:"btn btn-success" %>
+</div>
