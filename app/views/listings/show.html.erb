@@ -75,6 +75,36 @@
   <%= @listing.user.email %>
 </p>
 
+<div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
+       <ol class="carousel-indicators">
+         <% @listing.listingpics.each_with_index do |listingpic, index| %>
+           <% if index == 0 %>
+             <li data-target="screenshot-carousel" data-slide-to="#{index}" class="active"></li>            
+           <% else %>
+             <li data-target="screenshot-carousel" data-slide-to="#{index}"></li>
+           <% end %>
+         <% end %>
+       </ol>
+       <div class="carousel-inner">
+         <% @listing.listingpics.each_with_index do |listingpic, index| %>
+           <% if index == 0 %>
+             <div class="item active">
+               <%= image_tag listingpic.url(:full).to_s %>
+             </div>
+           <% else %>
+             <div class="item">
+               <%= image_tag listingpic.url(:full).to_s %>
+             </div>
+           <% end %>            
+         <% end %>
+       </div>
+       <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+         <span class="glyphicon glyphicon-chevron-left"></span>
+       </a>
+       <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+         <span class="glyphicon glyphicon-chevron-right"></span>
+       </a>
+     </div><!-- End Variable Carousel -->
 
 <p>
   <strong> Reservations:</strong>

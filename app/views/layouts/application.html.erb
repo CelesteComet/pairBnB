@@ -29,7 +29,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+                <li><%= link_to "All Listings", listings_index_path, method: :get %></li>
                 <li><a href="#contact">About Us</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -41,13 +41,35 @@
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
-
-                  </ul>
+                    </ul>  
                 </li>
               </ul>
+              
 
+          <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? -%>
+          <li>
+          <% if current_user.profile == nil %>
+          <a class="navbar-brand">Welcome <%= current_user.email %>! </a>
+          <% else %>
+          <a class="navbar-brand">Welcome <%= current_user.profile.name %>! </a>
+          <% end %>
+          </li>
+          <li>
+          <div><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
+          </li>
+          <% else -%>
+          <li>
+          <div class="navbar-right">
+          <form method="get" action="/sign_up">
+          <button class="btn btn-success" type="submit">Sign Up</button>
+          </form>
+          </div>
+          </li>
 
-    
+          <% end -%>
+
+          </ul>
 
 
 
@@ -66,19 +88,6 @@
  -->
 
           <!-- <div class="navbar-form navbar-right"> -->
-          <% if signed_in? -%>
-          <div><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success navbar-right" %></div>
-          <a class="navbar-brand navbar-right">Welcome <%= current_user.email %> </a>
-          <% else -%>
-          <%= link_to t(".sign_in"), sign_in_path %>
-          <% end -%>
-          </div>
-
-          <div id="flash">
-          <% flash.each do |key, value| -%>
-          <div id="flash_<%= key %>"><%=h value %></div>
-          <% end %>
-         </div>
 
 
 
