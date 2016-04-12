@@ -75,6 +75,11 @@
   <%= @listing.user.email %>
 </p>
 
+<p>
+  <strong>Price Per Night:</strong>
+  <%= @listing.price_per_night %>
+</p>
+
 <div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
        <ol class="carousel-indicators">
          <% @listing.listingpics.each_with_index do |listingpic, index| %>

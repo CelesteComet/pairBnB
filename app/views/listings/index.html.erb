@@ -12,6 +12,7 @@
     <tr>
       <th>Name</th>
       <th>Pictures</th>
+      <th>Price/Night</th>
       <th>Home type</th>
       <th>Room type</th>
       <th>Accommodates</th>
@@ -34,6 +35,7 @@
         <% end %>
         </td>
         <% end %>
+        <td><%= listing.price_per_night %></td>
         <td><%= listing.home_type %></td>
         <td><%= listing.room_type %></td>
         <td><%= listing.accommodates %></td>
@@ -78,6 +80,7 @@
        <p>Accomodates: <%= listing.accommodates %></p>
        <p>Address: <%= listing.address %></p>
        <p>City: <%= listing.city %></p>
+       <p>Price/Night: <%= listing.price_per_night %> USD</p>
      </div><!-- End Info Box -->
      <div class="col-lg-2"><!-- User Box -->
        <p>Posted by:</p>
