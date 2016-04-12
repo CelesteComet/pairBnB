@@ -25,7 +25,34 @@
   <%= @reservation.listing.name %>
 </p>
 
+<p>
+  <strong>Total Amount Due:</strong>
+  <%= @reservation.total_price %> USD
+</p>
+
+<p>
+  <strong>Payment Status:</strong>
+<% if @reservation.transactions.where(status: :authorized).blank? %>
+NOT PAID: PLEASE MAKE PAYMENT BELOW
+<% else %>
+PAID
+<% end %>
+</p>
+
+
+
 
 
 
 <%= link_to 'All Listings' , listings_index_path %>
+
+<br>
+
+<% if @reservation.transactions.where(status: :authorized).blank? %>
+<h2>Payment Status: NOT PAID</h2><br>
+
+<%= link_to 'Pay Now' , new_transaction_path + "?id=" + @reservation.id.to_s  %>
+<% else %>
+<h2>Payment Status: PAID</h2><br>
+
+<% end %>
