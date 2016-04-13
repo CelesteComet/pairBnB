@@ -3,9 +3,10 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
 
   def create
-    # @user = current_user
+    @user = current_user
+    @listing = @user.listings.new(listing_params)
 
-    @listing = Listing.new(listing_params)
+    # @listing = Listing.new(listing_params)
 
     respond_to do |format|
       if @listing.save
@@ -31,6 +32,8 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
 
   def update
     # @user = current_user
+    # byebug
+    # Don't need user_id in params by doing @user.listing.update because you don't want to change the user_id
         respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
@@ -61,7 +64,7 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params[:listing][:user_id] = current_user.id
+      # params[:listing][:user_id] = current_user.id
       params.require(:listing).permit(:name, :home_type, :room_type, :accommodates, :address, :city, :user_id, :price_per_night, { :listingpics => [] })
     end
 end

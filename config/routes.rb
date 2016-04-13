@@ -30,6 +30,22 @@ Rails.application.routes.draw do
 
   resources :transactions, only: [:new, :create]
 
+  #To Pass Restful Routes Nested Ids
+
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :listings
+  end
+
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :reservations
+  end
+
+   resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+    resources :profile, except:[:index]
+  end
+
+  #Restful routes nested ids end
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
