@@ -32,6 +32,9 @@ gem 'fog'
 gem 'sidekiq'
 gem 'will_paginate', '~> 3.0.5'
 gem 'braintree'
+gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
