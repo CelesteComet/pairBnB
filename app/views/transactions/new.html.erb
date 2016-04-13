@@ -3,6 +3,14 @@
 <%= form_for(@transaction) do |f| %>
 
   <div class="field">
+    <%= f.label :Listing %><br>
+    <%= @reservation.listing.name %>
+  </div>
+    <div class="field">
+    <%= f.label :Listing_Photo %><br>
+    <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+  </div>
+  <div class="field">
     <%= f.label :checkin %><br>
     <%= @reservation.checkin %>
   </div>

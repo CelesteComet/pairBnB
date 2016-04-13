@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>Listing Name:</strong>
+  <%= @reservation.listing.name %>
+</p>
+
+<p>
+  <strong>Listing Picture:</strong><br>
+  <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+</p>
+
+
 <p>
   <strong>Checkin:</strong>
   <%= @reservation.checkin %>
@@ -11,7 +23,7 @@
 </p>
 
 <p>
-  <strong>Specialrequests:</strong>
+  <strong>Special Requests:</strong>
   <%= @reservation.specialrequests %>
 </p>
 

@@ -27,6 +27,7 @@ before_action :require_login, only: [:edit, :update, :destroy, :create, :new]
   end
 
   def index
+    return @listings = Listing.paginate(:page => params[:page], per_page: 3).where(user_id: params[:user_id]) if params[:user_id]
     @listings = Listing.paginate(:page => params[:page], per_page: 5).order(created_at: :desc)
   end
 

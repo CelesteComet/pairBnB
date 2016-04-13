@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
+    return @reservations = Reservation.where(user_id: params[:user_id]) if params[:user_id]
     @reservations = Reservation.all
   end
 

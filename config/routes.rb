@@ -32,11 +32,11 @@ Rails.application.routes.draw do
 
   #To Pass Restful Routes Nested Ids
 
-  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy, :index] do
     resources :listings
   end
 
-  resources :users, only:[:create, :new, :show, :edit, :update, :destroy] do
+  resources :users, only:[:create, :new, :show, :edit, :update, :destroy, :index] do
     resources :reservations
   end
 
