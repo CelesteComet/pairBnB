@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <div>
+    <%= f.label :Listing %><br>
+    <%= Listing.find(@listing_id).name %>
+  </div>
+    <div>
+    <%= f.label :Listing_Photo %><br>
+    <%= image_tag Listing.find(@listing_id).listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+  </div>
+
   <div class="field">
     <%= f.label :checkin %><br>
     <%= f.date_field :checkin %>

@@ -30,19 +30,25 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li><%= link_to "All Listings", listings_index_path, method: :get %></li>
-                <li><a href="#contact">About Us</a></li>
+                <% if signed_in? %>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Account <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <% if current_user.profile == nil %>
+                    <li><%= link_to 'New Profile', new_profile_path %></li>
+                    <% else %>
+                    <li><%= link_to 'Your Profile', profile_path(current_user.profile.id) %></li>
+                    <% end %>
+                    <li><%= link_to "Your Listings", user_listings_path(current_user.id) %></li>
+                    <li><%= link_to "Your Reservations", user_reservations_path(current_user.id) %></li>
                     <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li class="dropdown-header">Unpaid Reservations</li>
+                    <li><a href="#">Reservation 1</a></li>
+                    <li><a href="#">Reservation 2</a></li>
                     </ul>  
                 </li>
+                <% end %> 
+                <li><a href="#contact">About Us</a></li>
               </ul>
               
 
@@ -56,8 +62,19 @@
           <% end %>
           </li>
           <li>
-          <div><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
+          <% if current_user.profile != nil %>
+          <%= image_tag current_user.profile.profile_pic.url(:thumb).to_s, class: "img-circle" %> 
+          <% end %>
           </li>
+          <li><p> ||  </p>  
+          </li>
+          <li>
+          <%= link_to ("Sign Out"), sign_out_path, method: :delete  %>
+          </li>
+          <li>
+          <!-- <li>
+          <div><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
+          </li> -->
           <% else -%>
           <li>
           <div class="navbar-right">

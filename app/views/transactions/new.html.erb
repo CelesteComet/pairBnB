@@ -1,0 +1,51 @@
+<h2>Payment Page</h2>
+
+<%= form_for(@transaction) do |f| %>
+
+  <div class="field">
+    <%= f.label :Listing %><br>
+    <%= @reservation.listing.name %>
+  </div>
+    <div class="field">
+    <%= f.label :Listing_Photo %><br>
+    <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+  </div>
+  <div class="field">
+    <%= f.label :checkin %><br>
+    <%= @reservation.checkin %>
+  </div>
+  <div class="field">
+    <%= f.label :checkout %><br>
+    <%= @reservation.checkout %>
+  </div>
+  <div class="field">
+    <%= f.label :specialrequests %><br>
+    <%= @reservation.specialrequests %>
+  </div>
+  <div class="field">
+    <%= f.label :Total_Amount_Due_In_USD %><br>
+    <%= @reservation.total_price %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :reservation_id, value: @reservation.id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :total_price, value: @reservation.total_price %>
+  </div>
+  <div class="field">
+    <div id="dropin"></div>
+  </div>
+  <div class="actions">
+    <%= f.label :Submit_Payment_Now %><br>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+       <script>
+         braintree.setup("<%=@client_token%>", "dropin", {
+           container: "dropin"
+         });
+
+       </script>

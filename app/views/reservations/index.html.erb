@@ -2,14 +2,18 @@
 
 <h1>Listing Reservations</h1>
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Checkin</th>
       <th>Checkout</th>
-      <th>Specialrequests</th>
-      <th>User</th>
+      <th>Special Requests</th>
+      <th>Listing Owner</th>
+      <th>Reserved By</th>
       <th>Listing</th>
+      <th>Duration</th>
+      <th>Total Cost</th>
+      <th>Payment Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +24,16 @@
         <td><%= reservation.checkin %></td>
         <td><%= reservation.checkout %></td>
         <td><%= reservation.specialrequests %></td>
-        <td><%= reservation.user_id %></td>
-        <td><%= reservation.listing_id %></td>
+        <td><%= image_tag reservation.listing.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= reservation.listing.user.profile.name %></td>
+        <td><%= image_tag reservation.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= reservation.user.profile.name %></td>
+        <td><%= image_tag reservation.listing.listingpics.first.url(:thumb).to_s, class: "img-rounded" %> <%= link_to "#{reservation.listing.name}", listing_path(reservation.listing.id) %></td>
+        <td><%= (reservation.checkout - reservation.checkin).to_i %> Days</td>
+        <td>$<%= reservation.total_price %> USD </td>
+        <% if reservation.transactions.where(status: :authorized).blank? %>
+        <td>NOT PAID    <br><%= link_to '<button class="btn btn-danger" type="button">Pay Now</button>'.html_safe , new_transaction_path + "?id=" + reservation.id.to_s %> </td>
+        <% else %>
+        <td>PAID</td>
+        <% end %>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

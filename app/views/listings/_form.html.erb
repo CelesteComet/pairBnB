@@ -39,6 +39,10 @@
     <%= f.label :listingpics %><br>
     <%= f.file_field :listingpics, multiple: true %>
   </div>
+    <div class="field">
+    <%= f.label :price_per_night_in_USD %><br>
+    <%= f.number_field :price_per_night %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
