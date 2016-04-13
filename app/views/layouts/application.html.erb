@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'application'%>
+<%= stylesheet_link_tag 'application'%>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -48,7 +49,21 @@
                     </ul>  
                 </li>
                 <% end %> 
-                <li><a href="#contact">About Us</a></li>
+                <!-- <li><a href="#contact">About Us</a></li> -->
+                <li><div padding-top="10px" style="padding-top: 10px"><form id="searchForm" action="/search/?q=" method="get" ><input class="nice_search" type="text" name="q" placeholder="Search...">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button></form></div></li>
+
+<script type="text/javascript">
+ $('#searchForm').submit(function(e){
+   e.preventDefault();
+   var search = $('.nice_search').val();
+   var url = $(this).attr('action');
+   //alert('search='+search+ ' url='+url);
+   window.location.href = url+search;
+});
+
+</script>
+
               </ul>
               
 
@@ -69,15 +84,12 @@
           <li><p> ||  </p>  
           </li>
           <li>
-          <%= link_to ("Sign Out"), sign_out_path, method: :delete  %>
-          </li>
           <li>
-          <!-- <li>
-          <div><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
-          </li> -->
+          <div padding-top="8px" style="padding-top: 8px"><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
+          </li>
           <% else -%>
           <li>
-          <div class="navbar-right">
+          <div padding-top="8px" style="padding-top: 8px" class="navbar-right">
           <form method="get" action="/sign_up">
           <button class="btn btn-success" type="submit">Sign Up</button>
           </form>
@@ -139,6 +151,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type='text/javascript' src="/app/assets/javascripts/application.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>

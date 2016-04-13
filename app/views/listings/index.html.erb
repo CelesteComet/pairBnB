@@ -65,6 +65,19 @@
 <h1>Listings#index</h1>
 <p>Find me in app/views/listings/index.html.erb</p>
 <br>
+<form id="searchForm" action="/search/?q=" method="get"><input class="nice_search" type="text" name="q" placeholder="Search...">
+ <input class="nice_submit" type="submit" value="SEARCH"></form>
+
+<script type="text/javascript">
+ $('#searchForm').submit(function(e){
+   e.preventDefault();
+   var search = $('.nice_search').val();
+   var url = $(this).attr('action');
+   //alert('search='+search+ ' url='+url);
+   window.location.href = url+search;
+});
+
+</script>
 
 <br>
 
