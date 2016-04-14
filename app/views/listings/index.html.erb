@@ -1,10 +1,90 @@
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <iframe width="1280" height="720" src="https://www.youtube.com/embed/Ba5fqHENsoo?rel=0&autoplay=1&loop=1&playlist=Ba5fqHENsoo" frameborder="0" allowfullscreen=""></iframe>
+              <!--  <video autoplay loop width="100%">
+                 <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" width="1024" height="552" type="video/mp4">
+                 Your browser does not support the video tag.
+              </video> -->
+          <!-- <div class="container">
+            <div class="carousel-caption">
+              <h1>Kev Raz John Rocks!</h1>
+              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Date Them Now!</a></p>
+            </div>
+          </div> -->
+        </div>
+        <div class="item">
+          <iframe width="1280" height="720" src="https://www.youtube.com/embed/QALNwcA3EQQ?rel=0&autoplay=1&loop=1&playlist=QALNwcA3EQQ" frameborder="0" allowfullscreen=""></iframe>
+              <!--  <video autoplay loop width="100%">
+                 <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" width="1024" height="552" type="video/mp4">
+                 Your browser does not support the video tag.
+              </video> -->
+          <!-- <div class="container">
+            <div class="carousel-caption">
+              <h1>Raz Can Cook! </h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Try Raz's Cooking Today!</a></p>
+            </div>
+          </div> -->
+        </div>
+        <div class="item">
+          <iframe width="1280" height="720" src="https://www.youtube.com/embed/d7hrNi4h8Ew?rel=0&autoplay=1&loop=1&playlist=d7hrNi4h8Ew" frameborder="0" allowfullscreen=""></iframe>
+              <!--  <video autoplay loop width="100%">
+                 <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" width="1024" height="552" type="video/mp4">
+                 Your browser does not support the video tag.
+              </video> -->
+          <!-- <div class="container">
+            <div class="carousel-caption">
+              <h1>Do You Wanna BBQ at Kev's House?</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign Up Now!</a></p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+<!-- ========================================================================= -->
 <h1>Listings#index</h1>
 <p>Find me in app/views/listings/index.html.erb</p>
+<br>
+<form id="searchForm" action="/search/?q=" method="get"><input class="nice_search" type="text" name="q" placeholder="Search...">
+ <input class="nice_submit" type="submit" value="SEARCH"></form>
+
+<script type="text/javascript">
+ $('#searchForm').submit(function(e){
+   e.preventDefault();
+   var search = $('.nice_search').val();
+   var url = $(this).attr('action');
+   //alert('search='+search+ ' url='+url);
+   window.location.href = url+search;
+});
+
+</script>
+
+<br>
+
 
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Listings</h1>
-
 
 <%= will_paginate @listings %> <br>
 <table width=100%>

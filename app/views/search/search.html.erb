@@ -1,0 +1,63 @@
+<h1>Listings Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+
+
+<h1>Search Results:</h1>
+ <br>
+ <% if @listings.empty? %>
+ <h2>Sorry, We Can't Find Anything Matching Your Query... Try Something New Maybe? </h2>
+
+ <%else%>
+ <% @listings.each do |listing| %>
+   <div class="row"><!-- Full Row -->      
+     <div class="col-lg-5"><!-- Picture Box-->
+     <% if listing.listingpics.blank? == true %>
+     <p>No Pics Available</p>
+     <% else %>
+       <%= image_tag listing.listingpics.first.url(:mid).to_s %>
+     <% end %>
+     </div><!-- End Picture Box -->
+     <div class="col-lg-5"><!-- Info Box -->
+       <h3><%= link_to "#{listing.name}", listing %></h3>
+       <p>Home type: <%= listing.home_type %></p>
+       <p>Room type: <%= listing.room_type %></p>
+       <p>Accomodates: <%= listing.accommodates %></p>
+       <p>Address: <%= listing.address %></p>
+       <p>City: <%= listing.city %></p>
+       <p>Price/Night: <%= listing.price_per_night %> USD</p>
+     </div><!-- End Info Box -->
+     <div class="col-lg-2"><!-- User Box -->
+       <p>Posted by:</p>
+       <p><%= image_tag listing.user.profile.profile_pic_url(:thumb).to_s, class:"img-circle" %> <%= link_to "#{listing.user.profile.name}", profile_path(listing.user.profile) %></p>
+       <% if listing.user == current_user %>
+         <p>
+           <%= link_to 'Edit', edit_listing_path(listing), class:"btn btn-warning" %>
+           <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+         </p>
+       <% end %>          
+     </div><!-- End User Box -->
+     <hr>
+   </div><!-- End Full Row -->
+   <hr>
+ <% end %>
+
+ <ul>
+  <% @listings.each do |listing| %>
+    <li>
+      <h3>
+        <%= link_to listing.name, controller: "listings", action: "show", id: listing.id%>
+      </h3>
+    </li>
+  <% end %>
+</ul>
+
+
+ <%end%>
+

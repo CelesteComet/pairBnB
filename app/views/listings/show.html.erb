@@ -10,6 +10,10 @@
   <% end %>
 </p>
 
+
+ <% if @listing.listingpics.blank? == true %>
+ <h2>No Pictures Available</h2>
+ <% else %>
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -19,7 +23,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
       <div class="item active">
-          <%= image_tag @listing.listingpics[1].url(:full).to_s, class: "img-rounded" %>
+          <%= image_tag @listing.listingpics[0].url(:full).to_s, class: "img-rounded" %>
       </div>
 
 
@@ -39,6 +43,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
+
+<%end%>
 
 <p>
   <strong>Name:</strong>
@@ -80,6 +86,10 @@
   <%= @listing.price_per_night %>
 </p>
 
+ <% if @listing.listingpics.blank? == true %>
+ <h2>No Pictures Available</h2>
+ <% else %>
+
 <div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
        <ol class="carousel-indicators">
          <% @listing.listingpics.each_with_index do |listingpic, index| %>
@@ -110,6 +120,8 @@
          <span class="glyphicon glyphicon-chevron-right"></span>
        </a>
      </div><!-- End Variable Carousel -->
+
+<% end %>
 
 <p>
   <strong> Reservations:</strong>
