@@ -50,8 +50,9 @@
                 </li>
                 <% end %> 
                 <!-- <li><a href="#contact">About Us</a></li> -->
-                <li><div padding-top="10px" style="padding-top: 10px"><form id="searchForm" action="/search/?q=" method="get" ><input class="nice_search" type="text" name="q" placeholder="Search...">
+<!--                 <li><div padding-top="10px" style="padding-top: 10px"><form id="searchForm" action="/search/?q=" method="get" ><input class="nice_search" type="text" name="q" placeholder="Search...">
                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button></form></div></li>
+
 
 <script type="text/javascript">
  $('#searchForm').submit(function(e){
@@ -62,7 +63,13 @@
    window.location.href = url+search;
 });
 
-</script>
+</script> -->
+
+              <li><div padding-top="9px" style="padding-top: 9px">
+              <form id="searchForm" action="/search/?q=" method="get">
+              <input type="search" placeholder="Search" name="q" >
+              </form></div>
+              </li>
 
               </ul>
               
@@ -133,7 +140,7 @@
 
   <%= yield %>
 
-    <div id="header">
+<!--     <div id="header">
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
@@ -145,16 +152,64 @@
     <% flash.each do |key, value| -%>
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
-  </div>
+  </div> -->
     <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type='text/javascript' src="/app/assets/javascripts/application.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+<!-- BEGIN .footer -->
+<div class="footer">
+
+  
+  <!-- BEGIN .row -->
+  <div class="row">
+
+    <!-- BEGIN .content -->
+    <div class="content">
+
+    <!-- BEGIN .footer-widgets -->
+    <div class="footer-widgets">
+
+      <div id="text-2" class="widget widget_text" style="
+    text-align: center;"><div class="footer-widget"><h6>The Next Academy PairBnB Experience</h6>     
+    </div></div>
+    <!-- END .footer-widgets -->
+    </div>
+
+    </div>
+
+  <!-- END .row -->
+  </div>
+
+
+  
+  <!-- BEGIN .footer-information -->
+  <div class="footer-information">
+
+    <!-- BEGIN .footer-content -->
+    <div class="footer-content">
+
+      <div class="align-left">
+        <p>Copyright &copy; 2016 &middot; All Rights Reserved &middot; Johnson Khoo Inc</p>
+        <p><a href="http://www.johnsonkhoo.com/" target="_blank">Produced</a> by <a href="http://www.johnsonkhoo.com/" target="_blank">Johnson Khoo Inc</a> &middot; <a href="http://johnsonkhoo.com/" target="_blank" title="Amazing Hosting">Dragon Slayer Hosting</a> &middot; <a href="http://johnsonkhoo.com/">Special Thanks To</a> &middot; <a href="http://johnsonkhoo.com/"> Raz | Kevin | Next Academy </a></p>
+      </div>
+
+      <div class="align-right">
+
+
+        
+      </div>
+
+    <!-- END .footer-content -->
+    </div>
+
+  <!-- END .footer-information -->
+  </div>
+
+<!-- END .footer -->
+</div>
+  </footer>
 </body>
 </html>
