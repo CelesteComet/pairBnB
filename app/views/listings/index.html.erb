@@ -55,10 +55,12 @@
           <div class="container">
             <div class="carousel-caption" style="top: 30%;bottom: auto;">
               <h1>Raz & Kevin Will Rock You!</h1>
+              <div>
               <form class="form-wrapper cf" action="/search/?q=" method="get">
               <input type="text" placeholder="Where's your next adventure gonna be?" name="q">
               <button type="submit">Search</button>
               </form>
+              </div>
              <!--  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign Up Now!</a></p> -->
             </div>
@@ -77,9 +79,7 @@
 
 
 <!-- ========================================================================= -->
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
-<br>
+<!-- 
 <form id="searchForm" action="/search/?q=" method="get"><input class="nice_search" type="text" name="q" placeholder="Search...">
  <input class="nice_submit" type="submit" value="SEARCH"></form>
 
@@ -94,12 +94,12 @@
 
 </script>
 
-<br>
+<br> -->
 
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Listings</h1>
+<!-- <h1>Listing Listings</h1>
 
 <%= will_paginate @listings %> <br>
 <table width=100%>
@@ -155,12 +155,16 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>
+<%= link_to 'New Listing', new_listing_path %> -->
 
+<div class="jumbotron" style="margin-top: -20px;">
+  <h1>Our Top Listings</h1>
+</div>
+<div class="container">
+<h3 style="text-align: right"><%= link_to 'Create New Listing', new_listing_path, class:"btn btn-info pull-left" %><%= will_paginate @listings %></h3>
+</div>
 <div class="container">
 
- <h1>JohnsonBnB Listings:</h1>
- <br>
  <% @listings.each do |listing| %>
    <div class="row"><!-- Full Row -->      
      <div class="col-lg-5"><!-- Picture Box-->
@@ -193,5 +197,5 @@
    </div><!-- End Full Row -->
    <hr>
  <% end %>
-   <%= link_to 'Create New Listing', new_listing_path, class:"btn btn-success" %>
+<h3 style="text-align: right"><%= link_to 'Create New Listing', new_listing_path, class:"btn btn-info pull-left" %><%= will_paginate @listings %></h3> <br>
 </div>
