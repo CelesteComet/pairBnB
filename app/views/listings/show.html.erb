@@ -22,15 +22,15 @@
          <% @listing.listingpics.each_with_index do |listingpic, index| %>
            <% if index == 0 %>
              <div class="item active">
-             <div class="videoWrapper">
-               <%= image_tag listingpic.url(:full).to_s %>
-             </div>
+            
+               <%= image_tag listingpic.url(:full).to_s, class: "picpic" %>
+            
              </div>
            <% else %>
              <div class="item">
-             <div class="videoWrapper">
-               <%= image_tag listingpic.url(:full).to_s %>
-             </div>
+             
+               <%= image_tag listingpic.url(:full).to_s, class: "picpic" %>
+            
              </div>
            <% end %>            
          <% end %>
