@@ -131,12 +131,14 @@
     </div><!-- /.container -->
 
 
-    <h1>Index Page</h1>
+    <!-- <h1>Index Page</h1> -->
 
-     <% if signed_in? %> <!--start signed in  -->
+    
+     <!--start signed in  -->
+     <!-- <% if signed_in? %> -->
 
 
-<h2>You Are Signed In As: <%= current_user.email %></h2>
+<!-- <h2>You Are Signed In As: <%= current_user.email %></h2>
 <h2>You Are Signed In As Current User Id: <%= current_user.id %></h2>
 
 <% if current_user.profile != nil %>
@@ -159,18 +161,20 @@
 <%= link_to 'Your Profile', profile_path(current_user.profile.id) %>
 <% end %>
 
-<% else %> <!--NOT signed in  -->
-
+<% else %>  -->
+<!--NOT signed in  -->
+<!--
 <% @users.each do |user| %>
 <p><%= user.email %></p>
 <p><%= user.id %></p>
 <% end %>
 <br>
-
-<%end%>  <!--END signed in  -->
-
+-->
+<%end%> 
+ <!--END signed in  -->
+<!-- 
 <br>
 
 <%= link_to 'All Listings' , listings_index_path %>
-<br>
+<br> -->
 

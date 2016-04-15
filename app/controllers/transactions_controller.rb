@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+	before_action :require_login
 	def new
 		@client_token = Braintree::ClientToken.generate
 		@reservation = Reservation.find(params[:id])
@@ -22,6 +23,7 @@ class TransactionsController < ApplicationController
   
         redirect_to reservation_path(:id => params[:transaction][:reservation_id]), notice: "Congratulations! Your transaction is successful!"
         else
+        Transaction.create(reservation_id: params[:transaction][:reservation_id], braintree_transaction_id: @result.transaction.id, status: @result.transaction.status, last_4: @result.transaction.credit_card_details.last_4)
         flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
         @client_token = Braintree::ClientToken.generate
 		@reservation = Reservation.find(params[:transaction][:reservation_id])

@@ -1,30 +1,30 @@
+<div class="container">
+<div class="jumbotron">
 <h2>Payment Page</h2>
 
 <%= form_for(@transaction) do |f| %>
 
-  <div class="field">
-    <%= f.label :Listing %><br>
-    <%= @reservation.listing.name %>
-  </div>
     <div class="field">
-    <%= f.label :Listing_Photo %><br>
     <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
   </div>
-  <div class="field">
-    <%= f.label :checkin %><br>
+    <div class="field">
+    <h2><%= @reservation.listing.name %></h2>
+  </div>
+  <div class="lead">
+    <%= f.label :from %><br>
     <%= @reservation.checkin %>
   </div>
-  <div class="field">
-    <%= f.label :checkout %><br>
+  <div class="lead">
+    <%= f.label :until %><br>
     <%= @reservation.checkout %>
   </div>
-  <div class="field">
-    <%= f.label :specialrequests %><br>
+  <div class="lead">
+    <%= f.label :requests %><br>
     <%= @reservation.specialrequests %>
   </div>
-  <div class="field">
-    <%= f.label :Total_Amount_Due_In_USD %><br>
-    <%= @reservation.total_price %>
+  <div class="lead">
+    <%= f.label :Total %><br>
+    <span class="label label-warning"><%= @reservation.total_price %> USD </span>
   </div>
   <div class="field">
     <%= f.hidden_field :reservation_id, value: @reservation.id %>
@@ -35,9 +35,9 @@
   <div class="field">
     <div id="dropin"></div>
   </div>
+   <br>
   <div class="actions">
-    <%= f.label :Submit_Payment_Now %><br>
-    <%= f.submit %>
+    <%= f.submit "Pay Now", class: "btn btn-danger"%>
   </div>
 <% end %>
 
@@ -49,3 +49,6 @@
          });
 
        </script>
+
+</div>
+</div>

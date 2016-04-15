@@ -1,3 +1,5 @@
+
+<div class="jumbotron">
 <p id="notice"><%= notice %></p>
 
 <h1>All Reservations</h1>
@@ -27,25 +29,26 @@
         <td><%= image_tag reservation.listing.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= reservation.listing.user.profile.name %></td>
         <td><%= image_tag reservation.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= reservation.user.profile.name %></td>
         <td><%= image_tag reservation.listing.listingpics.first.url(:thumb).to_s, class: "img-rounded" %> <%= link_to "#{reservation.listing.name}", listing_path(reservation.listing.id) %></td>
-        <td><%= (reservation.checkout - reservation.checkin).to_i %> Days</td>
-        <td>$<%= reservation.total_price %> USD </td>
+        <td class="lead" style="text-align: center"><span class="label label-success"><%= (reservation.checkout - reservation.checkin).to_i %> Day (s)</span></td>
+        <td class="lead" style="text-align: center"><span class="label label-primary">$<%= reservation.total_price %> USD</span> </td>
         <% if reservation.transactions.where(status: :authorized).blank? %>
-        <td>NOT PAID    <br><%= link_to '<button class="btn btn-danger" type="button">Pay Now</button>'.html_safe , new_transaction_path + "?id=" + reservation.id.to_s %> </td>
+        <td style="text-align: center"><%= link_to '<button class="btn btn-danger" type="button">Pay Now</button>'.html_safe , new_transaction_path + "?id=" + reservation.id.to_s %> </td>
         <% else %>
-        <td>PAID</td>
+        <td class="lead" style="text-align: center"><span class="label label-success"> PAID </span></td>
         <% end %>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', reservation, class: "btn btn-info" %></td>
+        <td><%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Reservation', new_reservation_path %>
-
+<div class="pull-right" style="margin-right: 1%">
+<%= link_to 'All Listings' , listings_index_path, class: "btn btn-warning" %> |
+<%= link_to 'New Reservation', new_reservation_path, class: "btn btn-success" %> 
 <br>
+</div>
 
-<%= link_to 'All Listings' , listings_index_path %>
-<br>
+</div>
+

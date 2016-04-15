@@ -1,70 +1,76 @@
+<div class="container">
+<div class="jumbotron">
 <p id="notice"><%= notice %></p>
 
-
-<p>
-  <strong>Listing Name:</strong>
-  <%= @reservation.listing.name %>
-</p>
-
-<p>
-  <strong>Listing Picture:</strong><br>
+<p class="lead">
   <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
 </p>
 
+<h2>
+  <%= @reservation.listing.name %>
+</h2>
 
-<p>
+<h3><span class="label label-primary"> Booked </span></h3>
+<br>
+
+<p class="lead">
   <strong>Checkin:</strong>
   <%= @reservation.checkin %>
 </p>
 
-<p>
+<p class="lead">
   <strong>Checkout:</strong>
   <%= @reservation.checkout %>
 </p>
 
-<p>
+<p class="lead">
   <strong>Special Requests:</strong>
   <%= @reservation.specialrequests %>
 </p>
 
-<p>
-  <strong>User Who Made Reservation:</strong>
+<p class="lead">
+  <strong>Reserved By:</strong>
   <%= @reservation.user.profile.name %>
 </p>
 
-<p>
-  <strong>Listing Name:</strong>
-  <%= @reservation.listing.name %>
-</p>
-
-<p>
+<p class="lead">
   <strong>Total Amount Due:</strong>
-  <%= @reservation.total_price %> USD
+  <span class="label label-danger"><%= @reservation.total_price %> USD</span>
 </p>
 
-<p>
+<p class="lead">
   <strong>Payment Status:</strong>
 <% if @reservation.transactions.where(status: :authorized).blank? %>
-NOT PAID: PLEASE MAKE PAYMENT BELOW
+<span class="label label-warning"> NOT PAID </span> || <%= link_to 'Pay Now' , new_transaction_path + "?id=" + @reservation.id.to_s, class: "btn btn-success"  %>
 <% else %>
-PAID
+<span class="label label-success">PAID</span>
 <% end %>
 </p>
 
+<div class="pull-right" style="margin-right: 0%">
+<%= link_to 'Back To All Listings' , listings_index_path, class: "btn btn-info" %>
+</div>
 
 
 
 
 
+<!-- 
 <%= link_to 'All Listings' , listings_index_path %>
 
 <br>
 
 <% if @reservation.transactions.where(status: :authorized).blank? %>
-<h2>Payment Status: NOT PAID</h2><br>
+<h2>Payment Status: NOT PAID</h2>
 
 <%= link_to 'Pay Now' , new_transaction_path + "?id=" + @reservation.id.to_s  %>
 <% else %>
 <h2>Payment Status: PAID</h2><br>
 
-<% end %>
+<% end %> -->
+
+<br>
+<br>
+
+</div>
+</div>

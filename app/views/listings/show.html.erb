@@ -48,14 +48,14 @@
   <% end %>
 </p>
 </div>
-
+<!-- 
 
  <% if @listing.listingpics.blank? == true %>
  <h2>No Pictures Available</h2>
  <% else %>
- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
       <!-- Indicators -->
-      <ol class="carousel-indicators">
+    <!--   <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -81,9 +81,130 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div><!-- /.carousel -->
+    </div> -->
+    <!-- /.carousel -->
 
-<%end%>
+<!-- <%end%> -->
+
+<div class="container">
+<div class="jumbotron">
+ 
+<h1><%= @listing.name %></h1> 
+<br>
+
+<p class="lead">
+  <strong>Home type:</strong>
+  <%= @listing.home_type %>
+</p>
+
+<p class="lead">
+  <strong>Room type:</strong>
+  <%= @listing.room_type %>
+</p>
+
+<p class="lead">
+  <strong>Accommodates:</strong>
+  <%= @listing.accommodates %>
+</p>
+
+<p class="lead">
+  <strong>Address:</strong>
+  <%= @listing.address %>
+</p>
+
+<p class="lead">
+  <strong>City:</strong>
+  <%= @listing.city %>
+</p>
+
+<p class="lead">
+  <strong>User:</strong>
+  <%= @listing.user.email %>
+</p>
+
+<p class="lead">
+  <strong>Price Per Night:</strong>
+  <%= @listing.price_per_night %>
+</p>
+
+
+<% if @listing.user == current_user %>
+<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-warning" %> |
+<% end %>
+<%= link_to 'Back', listings_path, class: "btn btn-primary" %>
+<div class="pull-right">
+<%= link_to 'Make A Reservation', new_reservation_path(:listing_id => @listing.id), class: "btn btn-success" %>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+<table width="100%">
+  <thead>
+    <tr>
+      <th>ID </th>
+      <th>Reservations</th>
+      <th>Duration</th>
+      <th style="text-align: right">Check In Date</th>
+      <th style="text-align: right">Check Out Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @listing_reservations.empty? %>
+    <tr>
+    <td colspan="5" style="text-align: center"><h2><span class="label label-danger"> No reservations yet</span></h2></td>
+    </tr>
+    <tr>
+    <td><h2> </h2>   
+    </td>
+    </tr>
+    <tr>
+    <td colspan="5" style="text-align: center">
+    <%= link_to 'Be The First To Book This Awesome Place!', new_reservation_path(:listing_id => @listing.id), class: "btn btn-lg btn-success" %>
+    </td>
+    </tr>
+    <% else %>
+
+    <% @listing_reservations.each.with_index do |booking, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <% if booking.user.profile.blank? %>
+        <td><%= booking.user.email %></td>
+        <% else %>
+        <td><%= image_tag booking.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= booking.user.profile.name %></td>
+        <%end%>
+        <td><h4><span class="label label-danger"><%= (booking.checkout - booking.checkin).to_i.to_s + " Day (s) " %></span></h4></td>
+        <td style="text-align: right"><h4><span class="label label-success"><%= booking.checkin %></span></td>
+        <td style="text-align: right"><h4><span class="label label-warning"><%=  booking.checkout %></span></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- 
+<br>
+<p>
+  <strong> Reservations:</strong>
+  <% @listing.reservations.each.with_index do |booking, index| %>
+  <p><%= index + 1 %>  From:  <%= booking.checkin %>   To:  <%=  booking.checkout %>   -- Booked By: <%= booking.user.profile.name %>  
+
+  <% if current_user == booking.user %>
+  <%= link_to 'Destroy', reservation_path(:id => booking.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
+  </p>
+  <% end %>
+</p> -->
+</div>
+
+<br>
+<br>
+<br>
+
+
+<!-- 
 
 <p>
   <strong>Name:</strong>
@@ -123,14 +244,16 @@
 <p>
   <strong>Price Per Night:</strong>
   <%= @listing.price_per_night %>
-</p>
-
+</p> -->
+<!-- 
  <% if @listing.listingpics.blank? == true %>
  <h2>No Pictures Available</h2>
  <% else %>
 
-<div class="carousel slide" id="screenshot-carousel" data-rise="carousel"><!-- Variable Carousel -->
-       <ol class="carousel-indicators">
+<div class="carousel slide" id="screenshot-carousel" data-rise="carousel"> -->
+
+<!-- Variable Carousel -->
+     <!--   <ol class="carousel-indicators">
          <% @listing.listingpics.each_with_index do |listingpic, index| %>
            <% if index == 0 %>
              <li data-target="screenshot-carousel" data-slide-to="#{index}" class="active"></li>            
@@ -158,11 +281,12 @@
        <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
          <span class="glyphicon glyphicon-chevron-right"></span>
        </a>
-     </div><!-- End Variable Carousel -->
+     </div> -->
+     <!-- End Variable Carousel -->
 
-<% end %>
+<!-- <% end %> -->
 
-<p>
+<!-- <p>
   <strong> Reservations:</strong>
   <% @listing.reservations.each.with_index do |booking, index| %>
   <p><%= index + 1 %>  From:  <%= booking.checkin %>   To:  <%=  booking.checkout %>   -- Booked By: <%= booking.user.profile.name %>  
@@ -172,12 +296,12 @@
   <%end%>
   </p>
   <% end %>
-</p>
+</p> -->
 
- <% if @listing.user == current_user %>
+<!--  <% if @listing.user == current_user %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>
 <%= link_to 'Back', listings_path %>
 <br>
-<%= link_to 'Make A Reservation', new_reservation_path(:listing_id => @listing.id) %>
+<%= link_to 'Make A Reservation', new_reservation_path(:listing_id => @listing.id) %> -->
 

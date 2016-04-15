@@ -158,8 +158,10 @@
 <%= link_to 'New Listing', new_listing_path %> -->
 
 <div class="jumbotron" style="margin-top: -20px;">
-  <h1>Our Top Listings</h1>
+  <h1>Listings</h1>
+</form>
 </div>
+
 <div class="container">
 <h3 style="text-align: right"><%= link_to 'Create New Listing', new_listing_path, class:"btn btn-info pull-left" %><%= will_paginate @listings %></h3>
 </div>
@@ -176,12 +178,11 @@
      </div><!-- End Picture Box -->
      <div class="col-lg-5"><!-- Info Box -->
        <h3><%= link_to "#{listing.name}", listing %></h3>
-       <p>Home type: <%= listing.home_type %></p>
-       <p>Room type: <%= listing.room_type %></p>
-       <p>Accomodates: <%= listing.accommodates %></p>
-       <p>Address: <%= listing.address %></p>
-       <p>City: <%= listing.city %></p>
-       <p>Price/Night: <%= listing.price_per_night %> USD</p>
+       <p><strong>Home type:</strong> <%= listing.home_type %></p>
+       <p><strong>Room type:</strong> <%= listing.room_type %></p>
+       <p><strong>Accomodates:</strong> <%= listing.accommodates %></p>
+       <p><strong>Address:</strong> <%= listing.address %></p>
+       <p><strong>City:</strong> <%= listing.city %></p>
      </div><!-- End Info Box -->
      <div class="col-lg-2"><!-- User Box -->
        <p>Posted by:</p>
@@ -191,7 +192,8 @@
            <%= link_to 'Edit', edit_listing_path(listing), class:"btn btn-warning" %>
            <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
          </p>
-       <% end %>          
+       <% end %>   
+       <p class="lead"><strong>Price/Night:</strong><br><span class="label label-success"><%= listing.price_per_night %> USD </span></p>      
      </div><!-- End User Box -->
      <hr>
    </div><!-- End Full Row -->

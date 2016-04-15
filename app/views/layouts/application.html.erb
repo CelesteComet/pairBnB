@@ -37,7 +37,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Account <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <% if current_user.profile == nil %>
-                    <li><%= link_to 'New Profile', new_profile_path %></li>
+                    <li><%= link_to 'Create Your Profile', new_profile_path %></li>
                     <% else %>
                     <li><%= link_to 'Your Profile', profile_path(current_user.profile.id) %></li>
                     <% end %>
@@ -45,8 +45,20 @@
                     <li><%= link_to "Your Reservations", user_reservations_path(current_user.id) %></li>
                     <li role="separator" class="divider"></li>
                     <li class="dropdown-header">Unpaid Reservations</li>
-                    <li><a href="#">Reservation 1</a></li>
-                    <li><a href="#">Reservation 2</a></li>
+                    <% @reservations = current_user.reservations %>
+                    <% @unpaid_reservations = [] %>
+                    <% @reservations.each do |reservation| %>
+                    <% if reservation.transactions.where(status: :authorized).blank? %>
+                    <% @unpaid_reservations << reservation %>
+                    <% end %>
+                    <% end %>
+                    <% if @unpaid_reservations.empty? %>
+                    <li style="text-align: center"> None </li>
+                    <% else %>
+                    <% @unpaid_reservations.each_with_index do |reservation, index| %> 
+                    <li><%= link_to "#{index+1}. Reservation for : #{reservation.listing.name} | USD #{reservation.total_price}", reservation_path(reservation.id) %></li>
+                    <%end%>
+                    <%end%>
                     </ul>  
                 </li>
                 <% end %> 
@@ -85,7 +97,7 @@
           <% end %>
           </li>
           <li>
-          <% if current_user.profile != nil %>
+          <% if current_user.profile.profile_pic != nil %>
           <%= image_tag current_user.profile.profile_pic.url(:thumb).to_s, class: "img-circle" %> 
           <% end %>
           </li>
@@ -96,6 +108,10 @@
           <div padding-top="8px" style="padding-top: 8px"><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "btn btn-success" %></div>
           </li>
           <% else -%>
+          <li>
+          <a href="/sign_up">Don't Have An Account?</a>
+          </li>
+        
           <li>
           <div padding-top="8px" style="padding-top: 8px" class="navbar-right">
           <form method="get" action="/sign_up">
