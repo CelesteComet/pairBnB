@@ -88,16 +88,16 @@
               
 
           <ul class="nav navbar-nav navbar-right">
-          <% if signed_in? -%>
+          <% if signed_in? %>
           <li>
-          <% if current_user.profile == nil %>
+          <% if current_user.profile.nil? %>
           <a class="navbar-brand">Welcome <%= current_user.email %>! </a>
           <% else %>
           <a class="navbar-brand">Welcome <%= current_user.profile.name %>! </a>
           <% end %>
           </li>
           <li>
-          <% if current_user.profile.profile_pic != nil %>
+          <% if current_user.profile != nil %>
           <%= image_tag current_user.profile.profile_pic.url(:thumb).to_s, class: "img-circle" %> 
           <% end %>
           </li>
