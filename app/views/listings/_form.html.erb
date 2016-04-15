@@ -13,37 +13,38 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :home_type %><br>
-    <%= f.text_field :home_type %>
+    <%= f.text_field :home_type, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :room_type %><br>
-    <%= f.text_field :room_type %>
+    <%= f.text_field :room_type, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :accommodates %><br>
-    <%= f.number_field :accommodates %>
+    <%= f.number_field :accommodates, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_area :address %>
+    <%= f.text_area :address, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-   <div class="field">
-    <%= f.label :listingpics %><br>
-    <%= f.file_field :listingpics, multiple: true %>
+    <%= f.text_field :city, class: "form-control" %>
   </div>
     <div class="field">
     <%= f.label :price_per_night_in_USD %><br>
-    <%= f.number_field :price_per_night %>
+    <%= f.number_field :price_per_night, class: "form-control" %>
   </div>
+     <div class="field">
+    <%= f.label :listingpics %><br>
+    <%= f.file_field :listingpics, multiple: true %>
+  </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm Listing Details", class: "btn btn-success" %>
   </div>
   <%end%>

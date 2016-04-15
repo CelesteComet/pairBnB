@@ -1,7 +1,7 @@
 
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: -100px;">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -10,32 +10,35 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="http://visualparadox.com/images/no_linking_allowed_/3840/whenbirdsheadsouth3840.jpg" alt="First slide">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/EyEyojMvveY?rel=0&autoplay=1&controls=0&loop=1&playlist=EyEyojMvveY&showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+          <!-- <img class="first-slide" src="http://visualparadox.com/images/no_linking_allowed_/3840/whenbirdsheadsouth3840.jpg" alt="First slide"> -->
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Kev Raz John Rocks!</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Date Them Now!</a></p>
+            <div class="carousel-caption" style="top: 30%;bottom: auto;">
+              <h1>Go On An Adventure & Stay With Us!</h1>
+              <p>Life is short... Don't waste it living somebody else's expectation of your life! Go forth, travel & be amazed by the amazing world out there! You will not regret it! We have a flurry of breath-taking listings for you to make your home anywhere you go! So what are you waiting for! Make a booking with us today and be blown-away!  </p>
+              <p><a class="btn btn-lg btn-primary" href="/listings/index" role="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> See Our Amazing Listings!</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="https://sanluisobispovacations.com/image/original/b62bc3e432117fa6abd5b4dc55198484.jpg" alt="Second slide">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/8Ow9eHdw11w?rel=0&autoplay=1&controls=0&loop=1&playlist=8Ow9eHdw11w&showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+         <!--  <img class="second-slide" src="https://sanluisobispovacations.com/image/original/b62bc3e432117fa6abd5b4dc55198484.jpg" alt="Second slide"> -->
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Raz Can Cook! </h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Try Raz's Cooking Today!</a></p>
+            <div class="carousel-caption" style="top: 30%;bottom: auto;">
+              <h1>Unleash The Wanderlust In You! </h1>
+              <p>Stare into the starry starry night in Alaska, catch the mesmerizing Northern Lights, bask in the magnificence of the Aurora. Experience staying in an Igloo like an Alaskan! All possible here!</p>
+              <p><a class="btn btn-lg btn-primary" href="/listings/index" role="button">Plan Your Adventure Today!</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="https://johnsonkhoo.files.wordpress.com/2014/07/cropped-header-vietnam-2.jpg" alt="Third slide">
+         <iframe width="1280" height="720" src="https://www.youtube.com/embed/49z9b2lgB6k?rel=0&autoplay=1&controls=0&loop=1&playlist=49z9b2lgB6k&showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+         <!--  <img class="third-slide" src="https://johnsonkhoo.files.wordpress.com/2014/07/cropped-header-vietnam-2.jpg" alt="Third slide"> -->
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Do You Wanna BBQ at Kev's House?</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign Up Now!</a></p>
+            <div class="carousel-caption" style="top: 30%;bottom: auto;">
+              <h1>Travel The World In Style!</h1>
+              <p>Stay at every major city in the world as you embark on your trip around the world! Make New York, Paris, Vancouver, Kuala Lumpur, Singapore, London, Sydney your own home by booking any one of our cosy listings!</p>
+              <p><a class="btn btn-lg btn-primary" href="/listings/index" role="button">Bring Me There Now!</a></p>
             </div>
           </div>
         </div>
@@ -128,12 +131,14 @@
     </div><!-- /.container -->
 
 
-    <h1>Index Page</h1>
+    <!-- <h1>Index Page</h1> -->
 
-     <% if signed_in? %> <!--start signed in  -->
+    
+     <!--start signed in  -->
+     <!-- <% if signed_in? %> -->
 
 
-<h2>You Are Signed In As: <%= current_user.email %></h2>
+<!-- <h2>You Are Signed In As: <%= current_user.email %></h2>
 <h2>You Are Signed In As Current User Id: <%= current_user.id %></h2>
 
 <% if current_user.profile != nil %>
@@ -147,10 +152,6 @@
 <p><%= user.id %></p>
 <% end %>
 
-<a href="/auth/facebook">
-  <i class="fa fa-facebook"/>
-  Log In with Facebook
-</a>
 
 <br><br>
 
@@ -160,22 +161,20 @@
 <%= link_to 'Your Profile', profile_path(current_user.profile.id) %>
 <% end %>
 
-<% else %> <!--NOT signed in  -->
-
+<% else %>  -->
+<!--NOT signed in  -->
+<!--
 <% @users.each do |user| %>
 <p><%= user.email %></p>
 <p><%= user.id %></p>
 <% end %>
 <br>
-<a href="/auth/facebook">
-  <i class="fa fa-facebook"/>
-  Log In with Facebook
-</a>
-
-<%end%>  <!--END signed in  -->
-
+-->
+<%end%> 
+ <!--END signed in  -->
+<!-- 
 <br>
 
 <%= link_to 'All Listings' , listings_index_path %>
-<br>
+<br> -->
 

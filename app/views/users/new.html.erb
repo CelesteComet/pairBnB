@@ -1,15 +1,27 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
-
+<div class="container">
+<div class="jumbotron">
+  <div id="clearance" class="sign-up">
+  <h1><%= t(".title") %></h1>
+   <p class="lead">Sign Up with us today & get access to the most amazing places to stay in the whole wide world! An account with us is your passport to travel the world in style while making the world your home!</p>
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
+    <br>
+    <br>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
+    <div class="submit-field">
+      <%= form.submit "Sign Up", class: "btn btn-lg btn-success"%>
+      <a href="/auth/facebook" class="btn btn-lg btn-primary">
+      <i class="fa fa-facebook"></i> Sign Up with Facebook </a>
+
+    <div class="other-links" style="float: right;">
+      <%= link_to t(".sign_in"), sign_in_path, class: "btn btn-lg btn-success" %>
+    </div>
     </div>
   <% end %>
+
 </div>
+</div>
+</div>
+
+
