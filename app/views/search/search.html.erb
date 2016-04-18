@@ -13,7 +13,7 @@
 </div>
  <br>
  <% if @listings.empty? %>
- <h2>Sorry, We Can't Find Anything Matching Your Query... Try Something New Maybe? </h2>
+ <h2> Sorry, We Can't Find Anything Matching Your Query... Try Something New Maybe? </h2>
 
  <%else%>
  <% @listings.each do |listing| %>
@@ -27,12 +27,11 @@
      </div><!-- End Picture Box -->
      <div class="col-lg-5"><!-- Info Box -->
        <h3><%= link_to "#{listing.name}", listing %></h3>
-       <p>Home type: <%= listing.home_type %></p>
-       <p>Room type: <%= listing.room_type %></p>
-       <p>Accomodates: <%= listing.accommodates %></p>
-       <p>Address: <%= listing.address %></p>
-       <p>City: <%= listing.city %></p>
-       <p>Price/Night: <%= listing.price_per_night %> USD</p>
+       <p><b>Home type:</b> <%= listing.home_type %></p>
+       <p><b>Room type:</b> <%= listing.room_type %></p>
+       <p><b>Accomodates:</b> <%= listing.accommodates %></p>
+       <p><b>Address:</b> <%= listing.address %></p>
+       <p><b>City:</b> <%= listing.city %></p>
      </div><!-- End Info Box -->
      <div class="col-lg-2"><!-- User Box -->
        <p>Posted by:</p>
@@ -42,7 +41,8 @@
            <%= link_to 'Edit', edit_listing_path(listing), class:"btn btn-warning" %>
            <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
          </p>
-       <% end %>          
+       <% end %>  
+       <p class="lead"><strong>Price/Night:</strong><br><span class="label label-info"><%= listing.price_per_night %> USD </span></p>        
      </div><!-- End User Box -->
      <hr>
    </div><!-- End Full Row -->
