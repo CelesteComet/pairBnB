@@ -118,6 +118,355 @@ input::-webkit-input-placeholder {
         -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
         box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
     }
+
+    .carousel-caption{
+    top: 30%;
+    bottom: auto;
+    }
+
+    #homecap{
+    top: 28%;
+    bottom: auto;
+    }
+
+
+    @media screen and (max-width: 1166px){
+    .form-wrapper{
+    width:90%;
+    }
+    #johnson-btn{
+    font-size:14px !important;
+    width:100px;
+    }
+    #johnson-input{
+    width:79%;
+    }
+    .carousel-caption{
+    top: 30%;
+    bottom: auto;
+    }
+    #homecap{
+    top: 28%;
+    bottom: auto;
+    }
+    #boomshaka{
+    display: none;
+    }
+    }
+
+    @media screen and (max-width: 1050px){
+    .form-wrapper{
+    width:80%;
+    }
+    #johnson-btn{
+    font-size:14px !important;
+    width:90px;
+    }
+    #johnson-input{
+    width:77%;
+    }
+    .carousel-caption{
+    top: 30%;
+    bottom: auto;
+    }
+    #homecap{
+    top: 24%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 34px;
+    }
+    }
+
+
+    @media screen and (max-width: 963px){
+    .form-wrapper{
+    width:80%;
+    }
+    #johnson-btn{
+    font-size:14px !important;
+    width:85px;
+    }
+    #johnson-input{
+    width:75%;
+    }
+    .carousel-caption{
+    top: 25%;
+    bottom: auto;
+    }
+    #homecap{
+    top: 20%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 30px;
+    }
+    }
+
+    @media screen and (max-width: 835px){
+    .form-wrapper{
+    width:80%;
+    }
+    #johnson-btn{
+    font-size:12px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:75%;
+    }
+    .carousel-caption{
+    top: 20%;
+    bottom: auto;
+    }
+    #homecap{
+    top: 18%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 25px;
+    }
+    }
+
+    @media screen and (max-width: 769px){
+    .form-wrapper{
+    width:80%;
+    }
+    #johnson-btn{
+    font-size:12px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:75%;
+    }
+    .carousel-caption{
+    top: 19%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 32px;
+    }
+    #homecap{
+    top: 16.5%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 25px;
+    }
+    #boomsearch{
+    display: none;
+    }
+    }
+
+
+    @media screen and (max-width: 693px){
+    .form-wrapper{
+    width:70%;
+    }
+    #johnson-btn{
+    font-size:12px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:65%;
+    }
+    .carousel-caption{
+    top: 13%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 32px;
+    }
+    #homecap{
+    top: 10%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 22px;
+    }
+    }
+
+    @media screen and (max-width: 581px){
+    .form-wrapper{
+    width:70%;
+    }
+    #johnson-btn{
+    font-size:12px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:60%;
+    }
+    .carousel-caption{
+    top: 10%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 28px;
+    }
+    #homecap{
+    top: -2%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 18px;
+    }
+    }
+
+    @media screen and (max-width: 504px){
+    .form-wrapper{
+    width:70%;
+    }
+    #johnson-btn{
+    font-size:12px !important;
+    width:70px;
+    }
+    #johnson-input{
+    width:50%;
+    }
+    .carousel-caption{
+    top: 2%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 24px;
+    }
+    #homecap{
+    top: 5%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 26px;
+    }
+    #homemid{
+    display: none;
+    }
+    }
+
+    @media screen and (max-width: 420px){
+    .form-wrapper{
+    width:100%;
+    }
+    #johnson-btn{
+    font-size:10px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:65%;
+    }
+    .carousel-caption{
+    top: -7%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 30px;
+    }
+    #homecap{
+    top: 5%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 27px;
+    }
+    #homemid{
+    display: none;
+    }
+    }
+
+    @media screen and (max-width: 376px){
+    .form-wrapper{
+    width:100%;
+    }
+    #johnson-btn{
+    font-size:10px !important;
+    width:80px;
+    }
+    #johnson-input{
+    width:62%;
+    }
+    .carousel-caption{
+    top: -7%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 30px;
+    }
+    #homecap{
+    top: -2%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 25px;
+    }
+    #homemid{
+    display: none;
+    }
+    }
+
+     @media screen and (max-width: 361px){
+    .form-wrapper{
+    width:100%;
+    }
+    #johnson-btn{
+    font-size:10px !important;
+    width:60px;
+    }
+    #johnson-input{
+    width:68%;
+    }
+    .carousel-caption{
+    top: -15%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 26px;
+    }
+    #homecap{
+    top: -5%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 23px;
+    }
+    #homemid{
+    display: none;
+    }
+    }
+
+     @media screen and (max-width: 321px){
+    .form-wrapper{
+    width:100%;
+    }
+    #johnson-btn{
+    font-size:10px !important;
+    width:60px;
+    }
+    #johnson-input{
+    width:63%;
+    }
+    .carousel-caption{
+    top: -18%;
+    bottom: auto;
+    }
+    #cap-text{
+    font-size: 24px;
+    }
+    #homecap{
+    top: -5%;
+    bottom: auto;
+    }
+    #hometop{
+    font-size: 22px;
+    }
+    #homemid{
+    display: none;
+    }
+    #shakabtn{
+    font-size: 12px;
+    }
+    }
+
+
+
     
     .form-wrapper input {
         color: black;

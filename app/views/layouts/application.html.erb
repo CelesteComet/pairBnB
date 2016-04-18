@@ -78,7 +78,7 @@
 
 </script> -->
 
-              <li><div padding-top="9px" style="padding-top: 9px">
+              <li id="boomsearch"><div padding-top="9px" style="padding-top: 9px">
               <form id="searchForm" action="/search/?q=" method="get">
               <input type="search" placeholder="Search" name="q" >
               </form></div>
@@ -87,7 +87,7 @@
               </ul>
               
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul id="boomshaka" class="nav navbar-nav navbar-right">
           <% if signed_in? %>
           <li>
           <% if current_user.profile.nil? %>
