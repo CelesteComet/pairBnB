@@ -21,7 +21,7 @@
     <div class="other-links" style="float: right;">
     <%= link_to t(".forgot_password"), new_password_path, class: "btn btn-lg btn-warning" %>
     <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path, class: "btn btn-lg btn-success" %>
+      <%= link_to "New User?", sign_up_path, class: "btn btn-lg btn-success" %>
     </div>
 
   </div> 

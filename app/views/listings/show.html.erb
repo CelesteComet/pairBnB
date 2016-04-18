@@ -45,13 +45,19 @@
 
 
 <% end %>
-<div style="background: black;">
-<p style="display: inline-flex;" class="container">
+
+<div style="background: black">
+ <div class="container-fluid" style="">
+   <div class="row">
   <% @listing.listingpics.each do |listingpic| %>
-  <%= image_tag listingpic.url(:mid).to_s, class: "img-rounded" %>
+  <div class="col-md-4" style="padding: 0px;">
+  <%= image_tag listingpic.url(:mid).to_s, class: "img-rounded img-responsive", style: "width: 100%;height: auto;"%>
+  </div>
   <% end %>
-</p>
 </div>
+</div>
+</div>
+
 <!-- 
 
  <% if @listing.listingpics.blank? == true %>
@@ -97,12 +103,12 @@
 <br>
 
 <p class="lead">
-  <strong>Home type:</strong>
+  <strong>Home Type:</strong>
   <%= @listing.home_type %>
 </p>
 
 <p class="lead">
-  <strong>Room type:</strong>
+  <strong>Room Type:</strong>
   <%= @listing.room_type %>
 </p>
 
@@ -122,15 +128,21 @@
 </p>
 
 <p class="lead">
-  <strong>User:</strong>
+  <strong>Listing Owner:</strong>
+  <% if @listing.user.profile.blank? %>
   <%= @listing.user.email %>
+  <% else %>
+  <%= @listing.user.profile.name %>
+  <% end %>
 </p>
-
+<div class="row">
 <p class="lead">
   <strong>Price Per Night:</strong>
-  <%= @listing.price_per_night %>
+  <span class="label label-pill label-danger"><%= @listing.price_per_night %></span>
 </p>
+</div>
 
+<br>
 
 <% if @listing.user == current_user %>
 <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-warning" %> |
@@ -144,6 +156,7 @@
 
 
 <div class="container">
+<div class="table-responsive">
 <table width="100%">
   <thead>
     <tr>
@@ -180,13 +193,14 @@
         <td><%= image_tag booking.user.profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %> <%= booking.user.profile.name %></td>
         <%end%>
         <td><h4><span class="label label-danger"><%= (booking.checkout - booking.checkin).to_i.to_s + " Day (s) " %></span></h4></td>
-        <td style="text-align: right"><h4><span class="label label-success"><%= booking.checkin %></span></td>
-        <td style="text-align: right"><h4><span class="label label-warning"><%=  booking.checkout %></span></td>
+        <td style="text-align: right"><h4><span class="label label-success"><%= booking.checkin %></span></h4></td>
+        <td style="text-align: right"><h4><span class="label label-warning"><%=  booking.checkout %></span></h4></td>
       </tr>
     <% end %>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <!-- 
 <br>

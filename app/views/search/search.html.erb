@@ -22,7 +22,7 @@
      <% if listing.listingpics.blank? == true %>
      <p>No Pics Available</p>
      <% else %>
-       <%= image_tag listing.listingpics.first.url(:mid).to_s %>
+       <%= image_tag listing.listingpics.first.url(:mid).to_s, class: "img-responsive" %>
      <% end %>
      </div><!-- End Picture Box -->
      <div class="col-lg-5"><!-- Info Box -->

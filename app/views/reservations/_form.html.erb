@@ -12,7 +12,7 @@
   <% end %>
 
     <div>
-    <%= image_tag Listing.find(@listing_id).listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+    <%= image_tag Listing.find(@listing_id).listingpics.first.url(:mid).to_s, class: "img-rounded img-responsive" %>
   </div>
     <div>
     <h2><%= Listing.find(@listing_id).name %></h2>
