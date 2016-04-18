@@ -5,7 +5,7 @@
 <%= form_for(@transaction) do |f| %>
 
     <div class="field">
-    <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded" %>
+    <%= image_tag @reservation.listing.listingpics.first.url(:mid).to_s, class: "img-rounded img-responsive" %>
   </div>
     <div class="field">
     <h2><%= @reservation.listing.name %></h2>

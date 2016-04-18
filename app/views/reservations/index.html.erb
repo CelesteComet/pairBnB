@@ -4,7 +4,8 @@
 
 <h1>All Reservations</h1>
 
-<table width="100%">
+<div class="table-responsive">
+<table width="100%" class="table table-condensed table-striped">
   <thead>
     <tr>
       <th>Checkin</th>
@@ -42,11 +43,11 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <div class="pull-right" style="margin-right: 1%">
-<%= link_to 'All Listings' , listings_index_path, class: "btn btn-warning" %> |
-<%= link_to 'New Reservation', new_reservation_path, class: "btn btn-success" %> 
+<%= link_to 'All Listings' , listings_index_path, class: "btn btn-danger" %>
 <br>
 </div>
 

@@ -171,6 +171,7 @@
 <div class="container">
 <h3 style="text-align: right"><%= link_to 'Create New Listing', new_listing_path, class:"btn btn-info pull-left" %><%= will_paginate @listings %></h3>
 </div>
+<div class="container-fluid"></div>
 <div class="container">
 
  <% @listings.each do |listing| %>
@@ -179,7 +180,7 @@
      <% if listing.listingpics.blank? == true %>
      <p>No Pics Available</p>
      <% else %>
-       <%= image_tag listing.listingpics.first.url(:mid).to_s %>
+       <%= image_tag listing.listingpics.first.url(:mid).to_s, class: 'img-responsive' %>
      <% end %>
      </div><!-- End Picture Box -->
      <div class="col-lg-5"><!-- Info Box -->
