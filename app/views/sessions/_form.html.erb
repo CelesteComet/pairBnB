@@ -14,14 +14,17 @@
     <br>
 
   <div class="submit-field">
-    <%= form.submit "Sign In", class: "btn btn-lg btn-success" %>
-    <a href="/auth/facebook" class="btn btn-lg btn-primary">
+    <%= form.submit "Sign In", class: "btn btn-lg btn-success", id: "signsignbtn" %>
+    <a href="/auth/facebook" class="btn btn-lg btn-primary" id="signsignbtn">
     <i class="fa fa-facebook"></i> Log In with Facebook </a>
 
+    <br>
+    <br>
+
     <div class="other-links" style="float: right;">
-    <%= link_to t(".forgot_password"), new_password_path, class: "btn btn-lg btn-warning" %>
+    <%= link_to t(".forgot_password"), new_password_path, class: "btn btn-lg btn-warning", id: "signsignbtn" %>
     <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to "New User?", sign_up_path, class: "btn btn-lg btn-success" %>
+      <%= link_to "New User?", sign_up_path, class: "btn btn-lg btn-success", id: "signsignbtn" %>
     </div>
 
   </div> 
