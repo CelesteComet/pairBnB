@@ -23,8 +23,9 @@
   <%= @profile.user.email %>
 </p>
 
-
+<% if current_user.profile.id == @profile.id %>
 <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-warning" %> |
+<% end %>
 <%= link_to 'Back', profiles_path, class: "btn btn-primary" %> |
 <%= link_to 'Create New Listing', new_listing_path, class:"btn btn-success" %> |
 <%= link_to "Explore Listings", listings_index_path, method: :get, class:"btn btn-info" %>

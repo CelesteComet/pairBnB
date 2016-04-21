@@ -21,8 +21,10 @@
         <td><%= image_tag profile.profile_pic.url(:thumb).to_s, class: "img-rounded" %></td>
         <td><%= profile.user_id %></td>
         <td><%= link_to 'Show', profile, class: "btn btn-warning" %></td>
+        <% if current_user.profile.id == profile.id %>
         <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-info" %></td>
         <td><%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
